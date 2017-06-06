@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/19 23:55:07 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/03 03:13:05 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/06/06 09:19:05 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ size_t	ft_printf(const char *format, ...)
 	{
 		elem = analyse(copy, elem);
 		elem = create_stock(elem, ap);
+		if (elem == NULL)
+			return (-1);
 	}
 	/*int i = 1;
 	while (elem)

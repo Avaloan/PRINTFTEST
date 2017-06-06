@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 10:26:46 by snedir            #+#    #+#             */
-/*   Updated: 2017/06/03 06:05:01 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/06/06 09:22:04 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ char	*place_zero(char *final, char *str, int size, int sizebuf)
 t_print	*create_stock(t_print *elem, va_list ap)
 {
 	t_print *start;
-
+	
+	int		ret;
 	start = elem;
 	while (elem)
 	{
@@ -81,17 +82,23 @@ t_print	*create_stock(t_print *elem, va_list ap)
 		}
 		if (STARAC)
 			NACC = va_arg(ap, int);
-		get_arg(elem, ap);
+		ret = get_arg(elem, ap);
+		if (ret == 0)
+			return (NULL);
 		apply_flags(elem);
 		elem = NEXT;
 	}
 	return (start);
 }
 
-void	get_arg(t_print *elem, va_list ap)
+int		get_arg(t_print *elem, va_list ap)
 {
 	if (SPEC == 'C' || (SPEC == 'c' && LEN == 'l'))
+	{
+		if (MB_CUR_MAX == 1)
+			return (0);
 		/*STOCK = */wide_char(elem, ap);
+	}
 	else if (SPEC == 'c')
 		arg_char(elem, ap);
 	else if (SPEC == 'x' || SPEC == 'X')
@@ -103,7 +110,11 @@ void	get_arg(t_print *elem, va_list ap)
 	else if (SPEC == 's' && LEN != 'l')
 		STOCK = string(elem, ap);
 	else if (SPEC == 'S' || (SPEC == 's' && LEN == 'l'))
+	{
+		if (MB_CUR_MAX == 1)
+			return (0);
 		/*STOCK = */wide_string(elem, ap);
+	}
 	else if (SPEC == '%')
 	{
 		STOCK = ft_strdup("%");
@@ -111,6 +122,7 @@ void	get_arg(t_print *elem, va_list ap)
 	}
 	else if (SPEC == 'p')
 		STOCK = get_pointer(elem, ap);
+	return (1);
 }
 
 size_t		da_print(t_print *elem, char *format)

@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/04 00:37:00 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/03 02:29:35 by fdidelot         ###   ########.fr       */
+/*   Updated: 2017/06/06 09:19:53 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ char				*get_signed_number(t_print *elem, va_list ap);
 
 /* format.c */
 t_print				*create_stock(t_print *elem, va_list ap);
-void				get_arg(t_print *elem, va_list ap);
+int					get_arg(t_print *elem, va_list ap);
 void				apply_flags(t_print *elem);
 int					print_list(t_print *elem, char *format);
 size_t				da_print(t_print *elem, char *format);
