@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 10:26:46 by snedir            #+#    #+#             */
-/*   Updated: 2017/06/06 09:22:04 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/08 01:08:31 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ int		get_arg(t_print *elem, va_list ap)
 	if (SPEC == 'C' || (SPEC == 'c' && LEN == 'l'))
 	{
 		if (MB_CUR_MAX == 1)
-			return (0);
-		/*STOCK = */wide_char(elem, ap);
+			arg_char(elem, ap);
+		else
+			/*STOCK = */wide_char(elem, ap);
 	}
 	else if (SPEC == 'c')
 		arg_char(elem, ap);

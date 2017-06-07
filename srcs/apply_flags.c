@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 01:04:12 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/06 08:51:23 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/06 09:37:51 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ int		apply_hash(t_print *elem)
 	}
 	else if ((ACC || ft_atoi(STOCK) > 0) && ((SPEC == 'O' || (SPEC == 'o' && LEN == 'l') || SPEC == 'o')))
 	{
+		printf("frgerg\n");
 		str = ft_strdup("0");
 		SIZE += 1;
 	}
