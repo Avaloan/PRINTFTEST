@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/24 01:04:12 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/08 04:06:11 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/08 04:27:19 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,12 @@ int		apply_hash(t_print *elem)
 	}
 	else if (SPEC == 'x' || SPEC == 'p')
 	{
+		if (SPEC == 'p' && ft_atoi(STOCK) == 0 && ACC && NACC == 0 && NUM == 0)
+		{
+			free(STOCK);
+			STOCK = ft_strnew(0);
+			SIZE -= 1;
+		}
 		str = ft_strdup("0x");
 		SIZE += 2;
 	}

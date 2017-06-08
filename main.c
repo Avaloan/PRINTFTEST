@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/20 02:42:19 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/08 04:07:03 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/08 04:26:11 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ int main()
 	printf("%.3%\n");
 	ft_printf("%.3%\n");
 */	
-	//printf("%.p\n", 0); 
-	//ft_printf("%.p\n", 0);
-/*
+	ret1 = printf("%.5p\n", 0); 
+	ret2 = ft_printf("%.5p\n", 0);
+	printf("%d    %d\n", ret1, ret2);
+/*	
 	printf("{%05.S}\n", L"42 c est cool");  //UNDIFINED
 	ft_printf("{%05.S}\n", L"42 c est cool");
 */
-	//printf("%#.3o\n", 1);
-	//ft_printf("%#.3o\n", 1);
+	printf("%#.3o\n", 1);
+	ft_printf("%#.3o\n", 1);
 /*
 	printf("{%05.Z}\n", 0);
 	ft_printf("{%05.Z}\n", 0);
@@ -57,7 +58,5 @@ int main()
 	printf("{%05.s}\n", 0); //UNDIFINED
 	ft_printf("{%05.s}\n", 0);
 */
-	printf("%#o\n", INT_MAX);
-	ft_printf("%#o\n", INT_MAX);
 	return (42);
 }
