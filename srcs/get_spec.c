@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/20 05:44:42 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/08 01:23:32 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/08 03:18:16 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,28 @@ char    *string(t_print *elem, va_list ap)
     char *str;
 
 	str = va_arg(ap, char*);
+	/*if (MB_CUR_MAX == 1 && (SPEC == 'S' || (SPEC == 's' && LEN == 'l')))
+		return (da_string(elem, str));*/
 	if (str == NULL)
 	{
 		SIZE = 6;
 		return (ft_strdup("(null)"));
 	}
 	STOCK = ft_strdup(str);
-	//while (*STOCK)
-	//{
-		//STOCK++;
-	//}
-    //printf("STRING = %s\n", STOCK);
+	SIZE = ft_strlen(STOCK);
+    if ((NACC < (int)SIZE && ACC))// || (STARAC < (int)SIZE && ACC))
+        apply_width_string(elem);
+    return (STOCK);
+}
+
+char    *da_string(t_print *elem, char *str)
+{
+	while (*str)
+	{
+		STOCK = ft_strjoin_free(STOCK, str, 1);
+		printf("char %c\n", *str);
+		str++;
+	}
 	SIZE = ft_strlen(STOCK);
     if ((NACC < (int)SIZE && ACC))// || (STARAC < (int)SIZE && ACC))
         apply_width_string(elem);

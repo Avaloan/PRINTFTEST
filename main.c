@@ -6,7 +6,7 @@
 /*   By: fdidelot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/20 02:42:19 by fdidelot          #+#    #+#             */
-/*   Updated: 2017/06/08 01:19:13 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/08 03:27:48 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main()
 	char c = 0;
 	//setlocale(LC_ALL, "");
 	wchar_t ee = 65478;
-	ret1 = ft_printf("CCCC = %S\n", "@@");
-	printf("NB CUR %d\n", ret1);
+	ret2 = ft_printf("%S", L"@@");
+	printf("ret2 %d\n", ret2);
 	printf("MB CUR MAX %d\n",MB_CUR_MAX);
 	printf("salut %S kkkk\n",L"ԶԶԶ");
 	//ret1 = ft_printf("% 04d\n", 654);

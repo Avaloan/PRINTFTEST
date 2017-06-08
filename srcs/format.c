@@ -6,7 +6,7 @@
 /*   By: snedir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 10:26:46 by snedir            #+#    #+#             */
-/*   Updated: 2017/06/08 01:12:17 by snedir           ###   ########.fr       */
+/*   Updated: 2017/06/08 03:27:02 by snedir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ int		get_arg(t_print *elem, va_list ap)
 	if (SPEC == 'C' || (SPEC == 'c' && LEN == 'l'))
 	{
 		if (MB_CUR_MAX == 1)
+		{
 			arg_char(elem, ap);
+			return (0);
+		}
 		else
 			/*STOCK = */wide_char(elem, ap);
 	}
@@ -111,12 +114,7 @@ int		get_arg(t_print *elem, va_list ap)
 	else if (SPEC == 's' && LEN != 'l')
 		STOCK = string(elem, ap);
 	else if (SPEC == 'S' || (SPEC == 's' && LEN == 'l'))
-	{
-		if (MB_CUR_MAX == 1)
-			string(elem, ap);
-		else
 		/*STOCK = */wide_string(elem, ap);
-	}
 	else if (SPEC == '%')
 	{
 		STOCK = ft_strdup("%");
